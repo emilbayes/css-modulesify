@@ -163,7 +163,7 @@ module.exports = function (browserify, options) {
     var relFilename = path.relative(rootDir, filename);
     tokensByFile[filename] = loader.tokensByFile[filename] = null;
 
-    loader.fetch(relFilename, '/').then(function (tokens) {
+    loader.fetch(relFilename).then(function (tokens) {
       var deps = loader.deps.dependenciesOf(filename);
       var output = deps.map(function (f) {
         return 'require("' + f + '")';
